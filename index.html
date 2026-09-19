@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lingeshwaran J — Full Stack Developer</title>
+
+<meta name="description" content="Portfolio of Lingeshwaran J, a Computer Science undergraduate and full stack developer from Tamil Nadu, India. Java, Spring Boot, React, Node.js.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+--bg:#fafafa;
+
+--surface:#ffffff;
+
+--ink:#1a1a1a;
+
+--muted:#5f6b76;
+
+--line:#e4e7eb;
+
+--accent:#2563eb;
+
+--accent-dark:#1d4ed8;
+
+--code-bg:#0f172a;
+
+--code-text:#e2e8f0;
+
+--radius:8px;
+
+--max:960px;
+
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+
+font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+background:var(--bg);
+
+color:var(--ink);
+
+line-height:1.6;
+
+font-size:16px;
+
+}
+
+.mono{font-family:'JetBrains Mono',monospace;}
+
+a{color:var(--accent);text-decoration:none;}
+
+a:hover{text-decoration:underline;}
+
+.container{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+
+
+header{
+
+position:sticky;top:0;z-index:100;
+
+background:rgba(250,250,250,0.92);
+
+backdrop-filter:blur(8px);
+
+border-bottom:1px solid var(--line);
+
+}
+
+.nav{
+
+max-width:var(--max);margin:0 auto;padding:14px 24px;
+
+display:flex;align-items:center;justify-content:space-between;
+
+}
+
+.logo{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:15px;color:var(--ink);}
+
+.logo span{color:var(--accent);}
+
+.nav ul{list-style:none;display:flex;gap:26px;}
+
+.nav ul a{color:var(--muted);font-size:14px;font-weight:500;transition:color .15s;}
+
+.nav ul a:hover{color:var(--ink);text-decoration:none;}
+
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:14px;cursor:pointer;}
+
+
+
+.hero{padding:88px 0 64px;}
+
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);margin-bottom:14px;}
+
+.hero h1{font-size:clamp(2rem,4.5vw,3rem);line-height:1.15;font-weight:700;max-width:640px;margin-bottom:18px;letter-spacing:-0.02em;}
+
+.hero p.lede{color:var(--muted);max-width:560px;font-size:17px;margin-bottom:30px;}
+
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+.btn{display:inline-block;padding:11px 20px;border-radius:var(--radius);font-size:14px;font-weight:600;transition:all .15s;}
+
+.btn-primary{background:var(--accent);color:#fff;}
+
+.btn-primary:hover{background:var(--accent-dark);text-decoration:none;transform:translateY(-1px);}
+
+.btn-outline{border:1px solid var(--line);color:var(--ink);background:var(--surface);}
+
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+
+
+
+.quick-facts{display:flex;gap:32px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid var(--line);}
+
+.qf{font-size:13px;color:var(--muted);}
+
+.qf b{display:block;color:var(--ink);font-size:14px;font-weight:600;margin-bottom:2px;}
+
+
+
+section{padding:64px 0;}
+
+section + section{border-top:1px solid var(--line);}
+
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:8px;}
+
+h2{font-size:1.6rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:28px;}
+
+
+
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;}
+
+.about-grid p{color:var(--muted);margin-bottom:16px;}
+
+.about-grid p strong{color:var(--ink);}
+
+.fact-list{list-style:none;}
+
+.fact-list li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;}
+
+.fact-list li span:first-child{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;}
+
+.fact-list li span:last-child{text-align:right;}
+
+
+
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+
+.skill-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+
+.skill-card h3{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid var(--line);}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+
+.chip{font-size:13px;padding:6px 12px;border-radius:100px;background:var(--bg);border:1px solid var(--line);}
+
+
+
+.project-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+
+.project-top{padding:28px;border-bottom:1px solid var(--line);}
+
+.project-top h3{font-size:1.25rem;margin-bottom:10px;}
+
+.project-body{padding:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;}
+
+.project-body ul{list-style:none;}
+
+.project-body li{padding-left:20px;position:relative;color:var(--muted);font-size:14.5px;margin-bottom:12px;}
+
+.project-body li::before{content:'▹';position:absolute;left:0;color:var(--accent);}
+
+
+
+.code-window{background:var(--code-bg);border-radius:var(--radius);font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--code-text);overflow:hidden;align-self:start;}
+
+.code-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.08);}
+
+.code-bar i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+.code-bar i:nth-child(1){background:#ef4444;}
+
+.code-bar i:nth-child(2){background:#f59e0b;}
+
+.code-bar i:nth-child(3){background:#22c55e;}
+
+.code-bar span{margin-left:8px;font-size:11px;color:#94a3b8;}
+
+.code-window pre{padding:16px;line-height:1.7;overflow-x:auto;}
+
+.c-kw{color:#93c5fd;} .c-str{color:#fca5a5;} .c-cm{color:#64748b;} .c-fn{color:#86efac;}
+
+
+
+.timeline{border-left:2px solid var(--line);padding-left:26px;margin-left:4px;}
+
+.t-item{position:relative;padding-bottom:36px;}
+
+.t-item:last-child{padding-bottom:0;}
+
+.t-item::before{content:'';position:absolute;left:-32px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);}
+
+.t-date{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);}
+
+.t-role{font-weight:600;font-size:1.05rem;margin:4px 0 2px;}
+
+.t-org{color:var(--muted);font-size:14px;margin-bottom:10px;}
+
+.t-item ul{list-style:none;}
+
+.t-item li{color:var(--muted);font-size:14.5px;padding-left:18px;position:relative;margin-bottom:6px;}
+
+.t-item li::before{content:'—';position:absolute;left:0;color:var(--line);}
+
+
+
+.cert-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+
+.cert-row:first-of-type{border-top:1px solid var(--line);}
+
+.cert-row .c-name{font-weight:500;}
+
+.cert-row .c-org{color:var(--muted);font-size:13px;}
+
+.cert-row .c-date{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);white-space:nowrap;}
+
+
+
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+.edu-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+
+.edu-card .t-date{display:block;margin-bottom:8px;}
+
+.edu-card h4{font-size:1rem;margin-bottom:4px;}
+
+.edu-card p{color:var(--muted);font-size:13.5px;}
+
+
+
+.contact-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:48px 32px;text-align:center;}
+
+.contact-box h2{margin-bottom:10px;}
+
+.contact-box p{color:var(--muted);margin-bottom:26px;}
+
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+
+
+footer{text-align:center;padding:32px 24px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);}
+
+
+
+@media (max-width:760px){
+
+.nav ul{display:none;}
+
+.menu-btn{display:block;}
+
+.nav.open ul{display:flex;flex-direction:column;position:absolute;top:56px;right:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 20px;gap:14px;}
+
+.about-grid,.project-body,.edu-grid{grid-template-columns:1fr;}
+
+.skills-grid{grid-template-columns:1fr;}
+
+.hero{padding:56px 0 44px;}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<header>
+
+<nav class="nav" id="nav">
+
+<div class="logo">lingeshwaran<span>.dev</span></div>
+
+<button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">Menu</button>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#project">Project</a></li>
+
+<li><a href="#experience">Experience</a></li>
+
+<li><a href="#education">Education</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<main>
+
+<div class="container">
+
+<div class="hero">
+
+<div class="hero-tag">// Full Stack Developer · CS Undergrad</div>
+
+<h1>Hi, I'm Lingeshwaran J. I build web apps end to end.</h1>
+
+<p class="lede">
+
+Computer Science undergraduate from Pudukkottai, Tamil Nadu. I work across the
+
+stack — Java &amp; Spring Boot on the back end, React on the front end — and I care
+
+about writing code that is clean, tested, and actually shipped.
+
+</p>
+
+<div class="hero-actions">
+
+<a class="btn btn-primary" href="mailto:lingeshwaranjagan@email.com">Get in touch</a>
+
+<a class="btn btn-outline" href="https://github.com/lingeshwaran-j" target="_blank" rel="noopener">GitHub ↗</a>
+
+<a class="btn btn-outline" href="https://linkedin.com/in/lingeshwaranj" target="_blank" rel="noopener">LinkedIn ↗</a>
+
+</div>
+
+<div class="quick-facts">
+
+<div class="qf"><b>Location</b>Pudukkottai, Tamil Nadu</div>
+
+<div class="qf"><b>Focus</b>Java · Spring Boot · React · Node.js</div>
+
+<div class="qf"><b>Open to</b>SDE Intern / Entry-level roles</div>
+
+<div class="qf"><b>Currently</b>B.E. CSE, 2024–2028</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<section id="about">
+
+<div class="container">
+
+<div class="sec-label">01 / About</div>
+
+<h2>A bit about me</h2>
+
+<div class="about-grid">
+
+<div>
+
+<p>
+
+I'm a Computer Science undergraduate at <strong>Erode Sengunthar Engineering College</strong>
+
+with hands-on experience building full stack applications. My main project so far is an
+
+<strong>end-to-end e-commerce platform</strong> — authentication, payments, a product catalog
+
+of 500+ items, and an automated CI/CD pipeline.
+
+</p>
+
+<p>
+
+I have a solid grounding in <strong>data structures, algorithms, and OOP</strong>, and I solve
+
+problems regularly on LeetCode to keep that sharp. Lately I've been spending time on
+
+<strong>system design fundamentals</strong> and exploring how to integrate AI/ML into the
+
+products I build.
+
+</p>
+
+<p>
+
+Outside of code, I've done technical training in <strong>drone technology and satellite
+
+systems</strong> through the India Space Lab program — which is a long way of saying I like
+
+understanding how systems work, from a REST endpoint all the way up to a CubeSat.
+
+</p>
+
+</div>
+
+<ul class="fact-list">
+
+<li><span>Email</span><span>lingeshwaranjagan@email.com</span></li>
+
+<li><span>Phone</span><span>+91 99651 16580</span></li>
+
+<li><span>GitHub</span><span>github.com/lingeshwaran-j</span></li>
+
+<li><span>LinkedIn</span><span>linkedin.com/in/lingeshwaranj</span></li>
+
+<li><span>LeetCode</span><span>leetcode.com/u/Lingeshwaran-dev</span></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="skills">
+
+<div class="container">
+
+<div class="sec-label">02 / Skills</div>
+
+<h2>What I work with</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+
+<h3>Languages</h3>
+
+<div class="chips">
+
+<span class="chip">Java</span><span class="chip">JavaScript</span>
+
+<span class="chip">SQL</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Frameworks &amp; Libraries</h3>
+
+<div class="chips">
+
+<span class="chip">Spring Boot</span><span class="chip">React</span>
+
+<span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">Tailwind CSS</span>
+
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Tools &amp; Concepts</h3>
+
+<div class="chips">
+
+<span class="chip">MySQL</span><span class="chip">MongoDB</span>
+
+<span class="chip">Git</span><span class="chip">GitHub Actions</span>
+
+<span class="chip">REST APIs</span><span class="chip">DSA</span><span class="chip">OOP</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="project">
+
+<div class="container">
+
+<div class="sec-label">03 / Project</div>
+
+<h2>Main project</h2>
+
+<div class="project-card">
+
+<div class="project-top">
+
+<h3>E-Commerce Platform</h3>
+
+<div class="chips">
+
+<span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express.js</span>
+
+<span class="chip">MongoDB</span><span class="chip">Stripe</span><span class="chip">GitHub Actions</span>
+
+</div>
+
+</div>
+
+<div class="project-body">
+
+<ul>
+
+<li>Built a responsive full-stack e-commerce application with user authentication (signup/login), a persistent shopping cart, and Stripe payment gateway integration for checkout.</li>
+
+<li>Designed and developed REST APIs with full CRUD operations for products, orders, and users.</li>
+
+<li>Wrote and optimized MongoDB queries to support a catalog of 500+ products without slowing down list or search views.</li>
+
+<li>Set up a CI/CD pipeline with GitHub Actions so tests run and the app deploys automatically on every push to main.</li>
+
+</ul>
+
+<div class="code-window">
+
+<div class="code-bar">
+
+<i></i><i></i><i></i><span>orders.controller.js</span>
+
+</div>
+
+<pre><span class="c-cm">// create a new order</span>
+
+<span class="c-kw">export const</span> <span class="c-fn">createOrder</span> = <span class="c-kw">async</span> (req, res) =&gt; {
+
+<span class="c-kw">const</span> order = <span class="c-kw">await</span> Order.create({
+
+user: req.user.id,
+
+items: req.body.items,
+
+total: req.body.total
+
+});
+
+res.status(<span class="c-str">201</span>).json(order);
+
+};</pre>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="experience">
+
+<div class="container">
+
+<div class="sec-label">04 / Experience</div>
+
+<h2>Internship &amp; training</h2>
+
+<div class="timeline">
+
+<div class="t-item">
+
+<span class="t-date">Summer Program</span>
+
+<div class="t-role">Summer Intern — Technical Training Program</div>
+
+<div class="t-org">India Space Lab</div>
+
+<ul>
+
+<li>Completed hands-on training covering drone technology, satellite systems (CanSat &amp; CubeSat), GIS mapping, and disaster management workflows.</li>
+
+<li>Worked with hardware-software integration concepts alongside a team of fellow interns.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="certifications">
+
+<div class="container">
+
+<div class="sec-label">05 / Certifications</div>
+
+<h2>Courses &amp; certifications</h2>
+
+<div class="cert-row">
+
+<div><div class="c-name">Java Training Program</div><div class="c-org">SLITS</div></div>
+
+<span class="c-date">Sep 2026</span>
+
+</div>
+
+<div class="cert-row">
+
+<div><div class="c-name">HTML Essentials</div><div class="c-org">Cisco Networking Academy</div></div>
+
+<span class="c-date">Aug 2026</span>
+
+</div>
+
+<div class="cert-row">
+
+<div><div class="c-name">AI Foundations</div><div class="c-org">OpenAI</div></div>
+
+<span class="c-date">Aug 2026</span>
+
+</div>
+
+<div class="cert-row">
+
+<div><div class="c-name">Advanced Software Engineering Job Simulation</div><div class="c-org">Forage</div></div>
+
+<span class="c-date">2026</span>
+
+</div>
+
+<div class="cert-row">
+
+<div><div class="c-name">Data Analytics MasterClass</div><div class="c-org">NoviTech R&amp;D</div></div>
+
+<span class="c-date">2026</span>
+
+</div>
+
+<div class="cert-row">
+
+<div><div class="c-name">Microsoft Excel Using AI Workshop</div><div class="c-org">Be10x</div></div>
+
+<span class="c-date">Apr 2026</span>
+
+</div>
+
+<div class="cert-row">
+
+<div><div class="c-name">HTML with AI</div><div class="c-org">Unstop</div></div>
+
+<span class="c-date">2026</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="education">
+
+<div class="container">
+
+<div class="sec-label">06 / Education</div>
+
+<h2>Education</h2>
+
+<div class="edu-grid">
+
+<div class="edu-card">
+
+<span class="t-date">Jul 2024 – May 2028</span>
+
+<h4>Bachelor of Engineering — Computer Science</h4>
+
+<p>Erode Sengunthar Engineering College (ESEC), Erode, Tamil Nadu</p>
+
+</div>
+
+<div class="edu-card">
+
+<span class="t-date">Jun 2023 – Mar 2024</span>
+
+<h4>Higher Secondary — Bio Mathematics (CBSE)</h4>
+
+<p>Shivaani Vidhyaa Mandhir CBSE School</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div class="sec-label" style="text-align:center;">07 / Contact</div>
+
+<h2>Let's build something</h2>
+
+<p>I'm open to Software Engineer Intern and entry-level opportunities. Feel free to reach out.</p>
+
+<div class="contact-links">
+
+<a class="btn btn-primary" href="mailto:lingeshwaranjagan@email.com">Email me</a>
+
+<a class="btn btn-outline" href="tel:+919965116580">+91 99651 16580</a>
+
+<a class="btn btn-outline" href="https://github.com/lingeshwaran-j" target="_blank" rel="noopener">GitHub</a>
+
+<a class="btn btn-outline" href="https://linkedin.com/in/lingeshwaranj" target="_blank" rel="noopener">LinkedIn</a>
+
+<a class="btn btn-outline" href="https://leetcode.com/u/Lingeshwaran-dev" target="_blank" rel="noopener">LeetCode</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+© 2026 Lingeshwaran J · Built with plain HTML, CSS &amp; JavaScript
+
+</footer>
+
+
+
+<script>
+
+var nav = document.getElementById('nav');
+
+var btn = document.getElementById('menuBtn');
+
+btn.addEventListener('click', function () {
+
+nav.classList.toggle('open');
+
+});
+
+nav.querySelectorAll('a').forEach(function (link) {
+
+link.addEventListener('click', function () {
+
+nav.classList.remove('open');
+
+});
+
+});
+
+</script>
+
+
+
+</body>
+
+</html>
